@@ -1,0 +1,34 @@
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& matrix) 
+    {
+        vector<int>k;
+        set<int>s1;
+        set<int>s2;
+        k=matrix[0];
+        int size=k.size();
+        for(int i=0; i<matrix.size(); i++)
+        {
+           for(int j=0; j<size; j++)
+           {
+               if(matrix[i][j]==0)
+               {
+                   s1.insert(i);
+                   s2.insert(j);
+               }
+           }
+        }  
+        int a=0,b=0;
+            for(int i=0; i<matrix.size(); i++)
+            {
+                for(auto a:s2){
+            matrix[i][a]=0;}
+            }
+            for(int j=0; j<size; j++)
+            {
+                for(auto b:s1){
+            matrix[b][j]=0;}
+
+            }
+    }
+};
